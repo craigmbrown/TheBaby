@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    "Chunk",
+    "User",
+    "Ai_agent",
+    "Tool",
+    "Model",
+    "Artifact",
+    "Aiassistant",
+    "Promptchain",
+    "Sentimentanalysis",
+    "Generativeai",
+    "Agenticsoftware",
+    "Prompt",
+    "Vision",
+    "Aiadvancement",
+    "Orchestrationlayer",
+    "Metaprompting",
+    "Aiengineering"
+  ],
+  "relationships": [
+    "ENABLES",
+    "GENERATES",
+    "UTILIZES",
+    "ANALYZES",
+    "TRANSFORMS",
+    "ENVISIONS",
+    "COORDINATES"
+  ]
+}
