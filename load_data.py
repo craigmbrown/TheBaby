@@ -12,7 +12,7 @@ class TextProcessor:
             pages = loader.load()
 
             text = "\n".join([doc.page_content for doc in pages])
-            documents = [Document(page_content=text)]
+            documents = [Document(page_content=text,metadata={"source": self.file_path})]
             return documents
         except Exception as e:
             print(f"Failed to load text: {str(e)}")
