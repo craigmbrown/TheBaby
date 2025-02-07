@@ -1,478 +1,137 @@
-from langchain_neo4j import Neo4jGraph
-from langchain_openai import ChatOpenAI
-
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.example_selectors import SemanticSimilarityExampleSelector
-from langchain_core.output_parsers import StrOutputParser
-from pydantic import BaseModel, Field
-from langgraph.graph import END, START, StateGraph
-
-from langchain_openai import OpenAIEmbeddings
-from langchain_neo4j import Neo4jVector
-from langchain_neo4j.chains.graph_qa.cypher_utils import CypherQueryCorrector, Schema
-from neo4j.exceptions import CypherSyntaxError
-import os
-from typing import Annotated, List, Literal
-from typing_extensions import TypedDict
+import sys, os
 from dotenv import load_dotenv
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_neo4j import Neo4jGraph, Neo4jVector
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.output_parsers import StrOutputParser
+from typing import List, TypedDict
+from typing_extensions import Annotated, Union
+from langchain.schema import Document
+# Load environment variables
 load_dotenv()
 
-"""
-QA LangGraph Template for Graph Database Querying
-
-The pipeline consists of:
-1. Guardrails – to ensure the question is within the supported domain.
-2. Few-shot based Cypher query generation (text2cypher) – converts the user question into a Cypher query.
-3. Query validation – checks for syntax errors, mapping of property values, and adjusts relationship directions.
-4. Query correction – if errors are detected, a corrected Cypher query is generated.
-5. Query execution – runs the final query against the graph database.
-6. Similarity search – performs a semantic search over nodes using vector embeddings.
-7. Answer generation – combines the original question, query results, and similarity search output into a succinct answer.
-8. LangGraph state machine – wires up the above steps using conditional edges.
-
-
-"""
-
-# =============================================================================
-# Define the Graph and Schema
-# =============================================================================
-# Create a connection to your graph database.
-graph = Neo4jGraph()
-# If needed, load your domain-specific data here.
-# Example: graph.query(YOUR_DATA_IMPORT_QUERY)
-
-# Refresh and retrieve the schema information.
+# Initialize LLM and graph connection (with enhanced schema for better details)
+llm = ChatOpenAI(model="gpt-4o", temperature=0, api_key=os.getenv("OPENAI_API_KEY"))
+graph = Neo4jGraph(
+    enhanced_schema=True,
+    url=os.getenv("NEO4J_URI"),
+    username=os.getenv("NEO4J_USER"),
+    password=os.getenv("NEO4J_PASSWORD")
+)
 graph.refresh_schema()
-# For enhanced schema details (min, max, examples), instantiate with enhanced_schema=True.
-enhanced_graph = Neo4jGraph(enhanced_schema=True,url=os.getenv("NEO4J_URI"), username=os.getenv("NEO4J_USER"), password=os.getenv("NEO4J_PASSWORD"))
 
-# =============================================================================
-# Define the State Types
-# =============================================================================
-class InputState(TypedDict):
-    question: str
-
-# Note: We add a new field 'similarity_results' to store similarity search output.
+# Define the overall state with similarity_results included.
 class OverallState(TypedDict):
     question: str
     next_action: str
     cypher_statement: str
     cypher_errors: List[str]
     database_records: List[dict]
-    steps: List[str]
-    similarity_results: List[dict]
+    similarity_results: Union[List[dict],List[Document]]
+    steps: Annotated[List[str], list]
 
-class OutputState(TypedDict):
-    answer: str
-    steps: List[str]
-    cypher_statement: str
-
-# =============================================================================
-# Step 1: Guardrails – Validate Domain of the Question
-# =============================================================================
-guardrails_system = """
-You are an intelligent assistant. Your primary objective is to decide whether a given question is related to the supported domain.
-If the question is within the domain, output "domain". Otherwise, output "end".
-"""
-
-guardrails_prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", guardrails_system),
-        ("human", "{question}"),
-    ]
-)
-
-class GuardrailsOutput(BaseModel):
-    decision: Literal["domain", "end"] = Field(
-        description="Decision on whether the question is in the supported domain"
-    )
-
-guardrails_chain = guardrails_prompt | ChatOpenAI(model="gpt-4o", temperature=0, api_key=os.getenv("OPENAI_API_KEY")).with_structured_output(GuardrailsOutput)
-
-def guardrails(state: InputState) -> OverallState:
-    """
-    Determines if the user question is within the supported domain.
-    """
-    guard_output = guardrails_chain.invoke({"question": state.get("question")})
-    database_records = None
-    if guard_output.decision == "end":
-        database_records = "The question is outside the supported domain. Please ask a question related to your data."
-    return {
-        "question": state.get("question"),
-        "next_action": guard_output.decision,
-        "database_records": database_records,
-        "steps": ["guardrail"],
-        "cypher_statement": "",
-        "cypher_errors": [],
-        "similarity_results": [],
-    }
-
-
-examples = [
-    {
-        "question": "Which Real Time API is generated by OpenAI?",
-        "query": "MATCH (a:Aiadvancement) WHERE toLower(a.name) CONTAINS toLower('openai') MATCH (a)-[:GENERATES]->(b:Realtimeapi) RETURN b.name"
-    },
-    {
-        "question": "What Speech-to-Speech AI Assistant is enabled by the Real Time API?",
-        "query": "MATCH (a:Realtimeapi) WHERE toLower(a.name) CONTAINS toLower('real time api') MATCH (a)-[:ENABLES]->(b:Speechtospeechassistant) RETURN b.name"
-    },
-    {
-        "question": "What reasoning models are part of the O1 series?",
-        "query": "MATCH (m:Reasoningmodel) WHERE toLower(m.name) CONTAINS toLower('o1 series') RETURN m.name"
-    },
-    {
-        "question": "Find the file for Python loops and comprehensions.",
-        "query": "MATCH (a:Artifact) WHERE toLower(a.name) CONTAINS toLower('python loops') RETURN a.name, a.id"
-    },
-    {
-        "question": "What is the vision of future engineering?",
-        "query": "MATCH (v:Vision) WHERE toLower(v.description) CONTAINS toLower('engineering in 2025') RETURN v.description"
-    },
-    {
-        "question": "Which AI assistant is known as Ada?",
-        "query": "MATCH (a:Aiassistant) WHERE toLower(a.name) CONTAINS toLower('ada') RETURN a.name, a.description"
-    },
-    {
-        "question": "List the tools for generating structured outputs.",
-        "query": "MATCH (t:Tool) WHERE toLower(t.name) CONTAINS toLower('structured outputs') RETURN t.name, t.description"
-    }
-]
-
-example_selector = SemanticSimilarityExampleSelector.from_examples(
-    examples, OpenAIEmbeddings(api_key=os.getenv("OPENAI_API_KEY")), Neo4jVector, k=5, input_keys=["question"]
-)
-
-
-
-# =============================================================================
-# Step 3: Cypher Query Generation Chain (Text2Cypher)
-# =============================================================================
-text2cypher_prompt = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            ("Given an input question, convert it to a Cypher query. "
-             "Respond with a Cypher statement only, without any additional text or formatting.")
-        ),
-        (
-            "human",
-            (
-                "You are a Neo4j expert. Convert the following question into a syntactically correct Cypher query.\n"
-                "Schema Information:\n{schema}\n\n"
-                "Few-shot examples:\n{fewshot_examples}\n\n"
-                "User question: {question}\n"
-                "Cypher query:"
-            )
-        ),
-    ]
-)
-
-text2cypher_chain = text2cypher_prompt | ChatOpenAI(model="gpt-4o", temperature=0, api_key=os.getenv("OPENAI_API_KEY")) | StrOutputParser()
-
+# STEP 1: Generate a Cypher query from the user question.
 def generate_cypher(state: OverallState) -> OverallState:
-    """
-    Generates a Cypher query based on the user question, provided schema, and few-shot examples.
-    """
-    selected = example_selector.select_examples({"question": state.get("question")})
-    print("DEBUG selected examples:", selected)
-
-    NL = "\n"
-    fewshot_lines = []
-    for el in selected:
-        # Only process items that have the keys you need
-        if "question" in el and "query" in el:
-            line = f"Question: {el['question']}\nCypher: {el['query']}"
-            fewshot_lines.append(line)
-        else:
-            # Skip or handle differently
-            print(f"Skipping item with keys: {list(el.keys())}")
-
-    fewshot_examples = "\n".join(fewshot_lines)
-    generated_query = text2cypher_chain.invoke({
-        "question": state.get("question"),
-        "fewshot_examples": fewshot_examples,
-        "schema": enhanced_graph.schema,
-    })
-    return {
-        **state,
-        "cypher_statement": generated_query,
-        "steps": (state.get("steps") or []) + ["generate_cypher"]
-    }
-
-# =============================================================================
-# Step 4: Validate the Generated Cypher Query
-# =============================================================================
-validate_cypher_system = "You are a Cypher expert reviewing a statement written by a junior developer."
-validate_cypher_user = (
-    "Please check the following:\n"
-    "* Are there any syntax errors in the Cypher statement?\n"
-    "* Are all referenced node labels, relationship types, and properties defined in the schema?\n"
-    "* Does the query provide enough detail to answer the question?\n\n"
-    "Schema:\n{schema}\n\n"
-    "User question:\n{question}\n\n"
-    "Cypher statement:\n{cypher}\n\n"
-    "List any errors found with detailed explanations."
-)
-
-validate_cypher_prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", validate_cypher_system),
-        ("human", validate_cypher_user),
-    ]
-)
-
-class Property(BaseModel):
-    node_label: str = Field(description="The label of the node.")
-    property_key: str = Field(description="The property key used in the query.")
-    property_value: str = Field(description="The property value being filtered.")
-
-class ValidateCypherOutput(BaseModel):
-    errors: List[str] = Field(default_factory=list, description="Any syntax or semantic errors in the query.")
-    filters: List[Property] = Field(default_factory=list, description="Filters applied in the query for validation.")
-
-validate_cypher_chain = validate_cypher_prompt | ChatOpenAI(model="gpt-4o", temperature=0, api_key=os.getenv("OPENAI_API_KEY")).with_structured_output(ValidateCypherOutput)
-
-corrector_schema = [
-    Schema(rel["start"], rel["type"], rel["end"])
-    for rel in enhanced_graph.structured_schema.get("relationships", [])
-]
-cypher_query_corrector = CypherQueryCorrector(corrector_schema)
-
-def validate_cypher(state: OverallState) -> OverallState:
-    """
-    Validates the generated Cypher query, applies schema corrections, and maps property values.
-    """
-    errors = []
-    mapping_errors = []
-
-    # Check for syntax errors using an EXPLAIN query.
-    try:
-        enhanced_graph.query(f"EXPLAIN {state.get('cypher_statement')}")
-    except CypherSyntaxError as e:
-        errors.append(e.message)
-    
-    # Correct relationship directions if necessary.
-    corrected_query = cypher_query_corrector(state.get("cypher_statement"))
-    if not corrected_query:
-        errors.append("The generated Cypher query does not fit the graph schema.")
-    if corrected_query != state.get("cypher_statement"):
-        print("Note: Relationship direction was corrected.")
-    
-    # Use the LLM to identify any additional errors and extract filters.
-    llm_output = validate_cypher_chain.invoke({
-        "question": state.get("question"),
-        "schema": enhanced_graph.schema,
-        "cypher": state.get("cypher_statement"),
-    })
-    errors.extend(llm_output.errors)
-    
-    # Validate string property values against the database.
-    if llm_output.filters:
-        for fltr in llm_output.filters:
-            prop_info = [
-                prop for prop in enhanced_graph.structured_schema["node_props"].get(fltr.node_label, [])
-                if prop["property"] == fltr.property_key
-            ]
-            if prop_info and prop_info[0]["type"] == "STRING":
-                mapping = enhanced_graph.query(
-                    f"MATCH (n:{fltr.node_label}) WHERE toLower(n.`{fltr.property_key}`) = toLower($value) RETURN 'yes' LIMIT 1",
-                    {"value": fltr.property_value},
-                )
-                if not mapping:
-                    msg = f"Missing mapping for {fltr.node_label}.{fltr.property_key} with value '{fltr.property_value}'"
-                    print(msg)
-                    mapping_errors.append(msg)
-    
-    next_action = "execute_cypher" if not errors and not mapping_errors else "correct_cypher"
-    
-    return {
-        **state,
-        "cypher_statement": corrected_query,
-        "cypher_errors": errors,
-        "next_action": next_action,
-        "steps": state.get("steps") + ["validate_cypher"],
-    }
-
-# =============================================================================
-# Step 5: Correct the Cypher Query (if validation fails)
-# =============================================================================
-correct_cypher_prompt = ChatPromptTemplate.from_messages(
-    [
-        (
-            "system",
-            ("You are a Cypher expert reviewing a statement written by a junior developer. "
-             "Correct the provided query based solely on the errors listed. Respond with a Cypher statement only.")
-        ),
-        (
-            "human",
-            (
-                "Schema:\n{schema}\n\n"
-                "User question:\n{question}\n\n"
-                "Original Cypher statement:\n{cypher}\n\n"
-                "Errors:\n{errors}\n\n"
-                "Corrected Cypher statement:"
-            )
-        ),
-    ]
-)
-
-correct_cypher_chain = correct_cypher_prompt | ChatOpenAI(model="gpt-4o", temperature=0, api_key=os.getenv("OPENAI_API_KEY")) | StrOutputParser()
-
-def correct_cypher(state: OverallState) -> OverallState:
-    """
-    Generates a corrected Cypher query based on the identified errors.
-    """
-    corrected_query = correct_cypher_chain.invoke({
-        "question": state.get("question"),
-        "errors": state.get("cypher_errors"),
-        "cypher": state.get("cypher_statement"),
-        "schema": enhanced_graph.schema,
-    })
-    return {
-        **state,
-        "cypher_statement": corrected_query,
-        "next_action": "validate_cypher",
-        "steps": state.get("steps") + ["correct_cypher"],
-    }
-
-# =============================================================================
-# Step 6: Execute the Cypher Query
-# =============================================================================
-# Define a message for when no results are found.
-no_results = "I couldn't find any relevant information in the database."
-
-def execute_cypher(state: OverallState) -> OverallState:
-    """
-    Executes the final Cypher query and stores the returned records.
-    """
-    records = enhanced_graph.query(state.get("cypher_statement"))
-    return {
-        **state,
-        "database_records": records if records else no_results,
-        "next_action": "end",
-        "steps": state.get("steps") + ["execute_cypher"],
-    }
-
-# =============================================================================
-# Step 7: Similarity Search over Nodes
-# =============================================================================
-def similarity_search(state: OverallState) -> OverallState:
-    """
-    Performs a similarity search over node embeddings using the user's question.
-    This step uses a vector store built on your graph database to retrieve nodes that are semantically similar.
-    """
-    # Build the vector store from the graph.
-    vector_store = Neo4jVector.from_existing_graph(
-        embedding_model=OpenAIEmbeddings(api_key=os.getenv("OPENAI_API_KEY"))
-    )
-    similar_nodes = vector_store.similarity_search(state.get("question"), k=5)
-    
-    # Use similarity search results if the primary query returned no records,
-    # or optionally combine them with the existing records.
-    if state.get("database_records") == no_results:
-        state["database_records"] = similar_nodes
-    else:
-        state["database_records"] += similar_nodes
-    
-    # Store the similarity search results separately (optional).
-    state["similarity_results"] = similar_nodes
-    state["steps"].append("similarity_search")
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "Convert the following question to a Cypher query. Return only the query."),
+        ("human", "Question: {question}\nCypher:")
+    ])
+    chain = prompt | llm | StrOutputParser()
+    state["cypher_statement"] = chain.invoke({"question": state["question"]})
+    state["steps"] = state.get("steps", []) + ["generate_cypher"]
     return state
 
-# =============================================================================
-# Step 8: Generate the Final Answer
-# =============================================================================
-generate_final_prompt = ChatPromptTemplate.from_messages(
-    [
-        ("system", "You are a helpful assistant."),
-        (
-            "human",
-            (
-                "Using the following database results, provide a succinct and direct answer to the user question.\n\n"
-                "Results: {results}\n\n"
-                "Question: {question}\n\n"
-                "Answer:"
-            )
-        ),
-    ]
-)
+# STEP 2: Validate the generated Cypher query.
+def validate_cypher(state: OverallState) -> OverallState:
+    errors = []
+    try:
+        # Using EXPLAIN to check syntax (adjust as needed)
+        graph.query(f"EXPLAIN {state['cypher_statement']}")
+    except Exception as e:
+        errors.append(str(e))
+    state["cypher_errors"] = errors
+    state["steps"] = state.get("steps", []) + ["validate_cypher"]
+    # If errors exist, mark for correction
+    state["next_action"] = "correct_cypher" if errors else "execute_cypher"
+    return state
 
-generate_final_chain = generate_final_prompt | ChatOpenAI(model="gpt-4o", temperature=0, api_key=os.getenv("OPENAI_API_KEY")) | StrOutputParser()
-
-def generate_final_answer(state: OverallState) -> OutputState:
-    """
-    Generates the final natural language answer based on the query results and similarity search.
-    """
-    final_answer = generate_final_chain.invoke({
-        "question": state.get("question"),
-        "results": state.get("database_records")
+# STEP 3: Correct the Cypher query if errors were found.
+def correct_cypher(state: OverallState) -> OverallState:
+    if state["next_action"] != "correct_cypher":
+        return state
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "You are a Cypher expert. Correct the errors in the following Cypher query."),
+        ("human", "Errors: {cypher_errors}\nOriginal Cypher: {cypher_statement}\nCorrected Cypher: IMPORTANT: return just the cypher query diectly and only")
+    ])
+    chain = prompt | llm | StrOutputParser()
+    corrected = chain.invoke({
+        "cypher_errors": state["cypher_errors"],
+        "cypher_statement": state["cypher_statement"]
     })
-    return {
-        "answer": final_answer,
-        "steps": state.get("steps") + ["generate_final_answer"],
-        "cypher_statement": state.get("cypher_statement"),
+    state["cypher_statement"] = corrected
+    state["steps"] = state.get("steps", []) + ["correct_cypher"]
+    state["next_action"] = "execute_cypher"
+    return state
+
+# STEP 4: Execute the Cypher query against Neo4j.
+def execute_cypher(state: OverallState) -> OverallState:
+    records = graph.query(state["cypher_statement"])
+    state["database_records"] = records if records else []
+    state["steps"] = state.get("steps", []) + ["execute_cypher"]
+    return state
+
+# STEP 5: Run similarity search using an existing Neo4j vector index.
+def execute_similarity_search(state: OverallState) -> OverallState:
+    store = Neo4jVector.from_existing_index(
+        OpenAIEmbeddings(api_key=os.getenv("OPENAI_API_KEY")),
+        url=os.getenv("NEO4J_URI"),
+        username=os.getenv("NEO4J_USER"),
+        password=os.getenv("NEO4J_PASSWORD"),
+        index_name="vector" 
+    )
+    # Run similarity search using the question (or you could use the cypher query if preferred)
+    state["similarity_results"] = store.similarity_search_with_score(state["question"],k=3)
+    state["steps"] = state.get("steps", []) + ["similarity_search"]
+    return state
+
+# STEP 6: Generate the final answer using both database and similarity search results.
+def generate_final_answer(state: OverallState) -> str:
+    prompt = ChatPromptTemplate.from_messages([
+        ("system", "You are a helpful assistant."),
+        ("human", "Given the following Neo4j query results:\n{database_records}\n"
+                    "And similarity search results:\n{similarity_results}\n"
+                    "Answer the question: {question}")
+    ])
+    chain = prompt | llm | StrOutputParser()
+    state["steps"] = state.get("steps", []) + ["generate_final_answer"]
+    return chain.invoke({
+        "database_records": state.get("database_records"),
+        "similarity_results": state.get("similarity_results"),
+        "question": state["question"]
+    })
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python query_graph.py \"<YOUR QUERY HERE>\"")
+        sys.exit(1)
+    user_query = " ".join(sys.argv[1:])
+    state: OverallState = {
+        "question": user_query,
+        "next_action": "",
+        "cypher_statement": "",
+        "cypher_errors": [],
+        "database_records": [],
+        "similarity_results": [],
+        "steps": []
     }
-
-# =============================================================================
-# Conditional Edge Functions for LangGraph
-# =============================================================================
-def guardrails_condition(state: OverallState) -> Literal["generate_cypher", "generate_final_answer"]:
-    """
-    Directs the flow based on the guardrails decision.
-    """
-    if state.get("next_action") == "end":
-        return "generate_final_answer"
-    elif state.get("next_action") == "domain":
-        return "generate_cypher"
-
-def validate_cypher_condition(state: OverallState) -> Literal["generate_final_answer", "correct_cypher", "execute_cypher"]:
-    """
-    Determines the next step based on cypher validation.
-    """
-    if state.get("next_action") == "end":
-        return "generate_final_answer"
-    elif state.get("next_action") == "correct_cypher":
-        return "correct_cypher"
-    elif state.get("next_action") == "execute_cypher":
-        return "execute_cypher"
-
-# =============================================================================
-# LangGraph State Machine Assembly
-# =============================================================================
-langgraph = StateGraph(OverallState, input=InputState, output=OutputState)
-# langgraph.add_node(guardrails)
-langgraph.add_node(generate_cypher)
-langgraph.add_node(validate_cypher)
-langgraph.add_node(correct_cypher)
-langgraph.add_node(execute_cypher)
-langgraph.add_node(similarity_search)  # New node for similarity search
-langgraph.add_node(generate_final_answer)
-
-# Define the flow between nodes.
-langgraph.add_edge(START, "generate_cypher")
-# langgraph.add_conditional_edges("guardrails", guardrails_condition)
-langgraph.add_edge("generate_cypher", "validate_cypher")
-langgraph.add_conditional_edges("validate_cypher", validate_cypher_condition)
-# After executing the Cypher query, perform similarity search to enrich the results.
-langgraph.add_edge("execute_cypher", "similarity_search")
-langgraph.add_edge("similarity_search", "generate_final_answer")
-langgraph.add_edge("correct_cypher", "validate_cypher")
-langgraph.add_edge("generate_final_answer", END)
-
-# Compile the LangGraph pipeline.
-langgraph = langgraph.compile()
+    state = generate_cypher(state)
+    state = validate_cypher(state)
+    if state["next_action"] == "correct_cypher":
+        state = correct_cypher(state)
+    state = execute_cypher(state)
+    state = execute_similarity_search(state)
+    final_answer = generate_final_answer(state)
+    print("Final Answer:\n", final_answer)
 
 if __name__ == "__main__":
-    import sys
-    if len(sys.argv) < 2:
-            print("Usage: python query_graph.py \"<YOUR QUERY HERE>\"")
-            sys.exit(1)
-
-
-    user_query = " ".join(sys.argv[1:])
-
-    # Example invocation with a test question.
-    # Replace the question with one from your domain.
-    result = langgraph.invoke({"question": user_query.strip()})
-    print(f"Answer: " + result['answer'])
+    main()

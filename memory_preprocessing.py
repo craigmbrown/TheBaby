@@ -77,12 +77,7 @@ def generate(
         logger.info("File loaded successfully.")
         texts = [doc.page_content for doc in data]
 
-        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-        docs = text_splitter.split_documents(data)
-
-        embeddings = OpenAIEmbeddings(api_key=openai_api_key)
-        db = Neo4jVector.from_documents(docs, embeddings, url=uri, username=username, password=password)
-
+        
         # If labels are not provided, decide based on the mode:
         if not rel_labels or not nodes_labels:
             if mode.lower() == "current":

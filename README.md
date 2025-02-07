@@ -179,8 +179,9 @@ Use **`query_graph_advanced.py`** to query your Neo4j database in natural langua
 ### Graph Querying Example
 
 ```bash
-python query_graph_advanced.py "Which AI agent generates the Python script?"
+python query_graph_advanced.py "What does Ada use?"
 ```
+![alt text](images/image_query.png)
 
 **Program Flow**:
 
