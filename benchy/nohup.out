@@ -1,0 +1,6 @@
+$ vite --host
+
+  VITE v5.4.14  ready in 1564 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://10.128.0.4:5173/

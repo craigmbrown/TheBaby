@@ -1,0 +1,1976 @@
+{
+    "benchmark_name": "Simple Math in Python",
+    "purpose": "Evaluate the ability of a language model to perform simple mathematical operations in Python.",
+    "models": [
+        {
+            "model": "llama3.2:1b",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "```\nprint(5 + 5)\n```",
+                        "tokens_per_second": 154.92957746478874,
+                        "provider": "ollama",
+                        "total_duration_ms": 840.783875,
+                        "load_duration_ms": 580.006709,
+                        "errored": null
+                    },
+                    "execution_result": "10.0",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint((5 + 5) // 2 * 3)\n```\n\n- `//` is used for floor division, which rounds down to the nearest whole number.\n- `(5 + 5)` evaluates to `10`.\n- `//` divides by 2, resulting in `5`.\n- `* 3` multiplies by 3.",
+                        "tokens_per_second": 149.51456310679612,
+                        "provider": "ollama",
+                        "total_duration_ms": 577.807084,
+                        "load_duration_ms": 24.6175,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nresult = 3 * 4 + 7\nprint(result)\n```\n\nThis code will evaluate \"multiply 3 by 4 and add 7\" as an expression and print the resulting value immediately.",
+                        "tokens_per_second": 147.90996784565917,
+                        "provider": "ollama",
+                        "total_duration_ms": 363.588,
+                        "load_duration_ms": 13.292208,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "**python**\n```python\nprint(20 - 15 * 3)\n```\n\n**Execution**\n- When you run this code in a Python environment, it will output the numeric result of subtracting 15 from 20 and multiplying by 3.",
+                        "tokens_per_second": 147.6323119777159,
+                        "provider": "ollama",
+                        "total_duration_ms": 415.191459,
+                        "load_duration_ms": 14.708334,
+                        "errored": null
+                    },
+                    "execution_result": "-25.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 4
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(100 / 4 + 25)\n```",
+                        "tokens_per_second": 144.23076923076923,
+                        "provider": "ollama",
+                        "total_duration_ms": 158.477583,
+                        "load_duration_ms": 14.388333,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate divide 100 by 4 and add 25 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>divide 100 by 4 and add 25</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 5
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nresult = 10**2 - 50\nprint(result)\n```",
+                        "tokens_per_second": 120.0,
+                        "provider": "ollama",
+                        "total_duration_ms": 206.487625,
+                        "load_duration_ms": 15.178458,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 10 squared minus 50 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 10 squared minus 50</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 6
+                },
+                {
+                    "prompt_response": {
+                        "response": "```\nprint(sum(10, 20, 30) / 3)\n```",
+                        "tokens_per_second": 95.0,
+                        "provider": "ollama",
+                        "total_duration_ms": 258.943292,
+                        "load_duration_ms": 15.855333,
+                        "errored": null
+                    },
+                    "execution_result": "Error: Traceback (most recent call last):\n  File \"/var/folders/5x/kqd2skpd1z1d0b_htgj3bhd00000gn/T/tmpoac6v49q.py\", line 1, in <module>\n    print(sum(10, 20, 30) / 3)\n          ^^^^^^^^^^^^^^^\nTypeError: sum() takes at most 2 arguments (3 given)\n",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the average of 10, 20, and 30 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the average of 10, 20, and 30</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 7
+                },
+                {
+                    "prompt_response": {
+                        "response": "`print(0.15 * 200)`",
+                        "tokens_per_second": 108.9108910891089,
+                        "provider": "ollama",
+                        "total_duration_ms": 202.078875,
+                        "load_duration_ms": 32.755584,
+                        "errored": null
+                    },
+                    "execution_result": "Error:   File \"/var/folders/5x/kqd2skpd1z1d0b_htgj3bhd00000gn/T/tmpbiowohko.py\", line 1\n    `print(0.15 * 200)`\n    ^\nSyntaxError: invalid syntax\n",
+                    "expected_result": "30.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 15 percent of 200 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 15 percent of 200</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 8
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(0.5 + 0.25)\n```",
+                        "tokens_per_second": 129.03225806451613,
+                        "provider": "ollama",
+                        "total_duration_ms": 215.178333,
+                        "load_duration_ms": 34.975042,
+                        "errored": null
+                    },
+                    "execution_result": "0.75",
+                    "expected_result": "0.75",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 1/2 and 1/4 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 1/2 and 1/4</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 9
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nresult = 2.5 * 4 - 3\nprint(result)\n```",
+                        "tokens_per_second": 124.2603550295858,
+                        "provider": "ollama",
+                        "total_duration_ms": 228.789375,
+                        "load_duration_ms": 14.896916,
+                        "errored": null
+                    },
+                    "execution_result": "7.0",
+                    "expected_result": "7.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 2.5 by 4 and subtract 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 2.5 by 4 and subtract 3</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 10
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\n\ndef solve_quadratic_equation():\n    a = 1\n    b = 5\n    c = 6\n    \n    # Calculate discriminant\n    d = (b**2) - (4*a*c)\n    \n    # Find roots using the quadratic formula\n    root1 = (-b + math.sqrt(d)) / (2 * a)\n    root2 = (-b - math.sqrt(d)) / (2 * a)\n    \n    # Determine largest root\n    if root1 > root2:\n        return root1\n    else:\n        return root2\n\nresult = solve_quadratic_equation()\nprint(result)\n```",
+                        "tokens_per_second": 147.5054229934924,
+                        "provider": "ollama",
+                        "total_duration_ms": 989.374875,
+                        "load_duration_ms": 14.46775,
+                        "errored": null
+                    },
+                    "execution_result": "-2.0",
+                    "expected_result": "-2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate solve the quadratic equation x² + 5x + 6 = 0 and return the largest root in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>solve the quadratic equation x² + 5x + 6 = 0 and return the largest root</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 11
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef calculate_compound_interest():\n    principal = 1000\n    rate = 0.05\n    time = 3\n    result = principal * (1 + rate) ** (time + 1)\n    print(result)\n\ncalculate_compound_interest()\n```",
+                        "tokens_per_second": 144.27860696517413,
+                        "provider": "ollama",
+                        "total_duration_ms": 465.256333,
+                        "load_duration_ms": 15.664708,
+                        "errored": null
+                    },
+                    "execution_result": "1215.5062500000001",
+                    "expected_result": "1157.63",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 12
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\n\npi = 3.14159\narea = math.pi * (5 ** 2)\nprint(area)\n```\n\nThis Python code calculates the area of a circle with a given radius and prints its value. The `math` module is imported for access to the constant `pi`.",
+                        "tokens_per_second": 143.49775784753362,
+                        "provider": "ollama",
+                        "total_duration_ms": 502.13975,
+                        "load_duration_ms": 15.992542,
+                        "errored": null
+                    },
+                    "execution_result": "78.53981633974483",
+                    "expected_result": "78.53975",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the area of a circle with radius 5 using π = 3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the area of a circle with radius 5 using π = 3.14159</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 13
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\n\nresult = math.gcd(48, 18)\nprint(result)\n```",
+                        "tokens_per_second": 153.84615384615387,
+                        "provider": "ollama",
+                        "total_duration_ms": 195.582334,
+                        "load_duration_ms": 13.6705,
+                        "errored": null
+                    },
+                    "execution_result": "6.0",
+                    "expected_result": "6.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the greatest common divisor of 48 and 18 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the greatest common divisor of 48 and 18</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 14
+                },
+                {
+                    "prompt_response": {
+                        "response": "**python**\n```python\nimport math\n\nprint(math.factorial(5))\n```\n\n**execute**",
+                        "tokens_per_second": 127.90697674418605,
+                        "provider": "ollama",
+                        "total_duration_ms": 225.870125,
+                        "load_duration_ms": 14.780875,
+                        "errored": null
+                    },
+                    "execution_result": "120.0",
+                    "expected_result": "120.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the factorial of 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the factorial of 5</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 15
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.comb(6, 3))\n```",
+                        "tokens_per_second": 117.64705882352942,
+                        "provider": "ollama",
+                        "total_duration_ms": 214.622292,
+                        "load_duration_ms": 15.607,
+                        "errored": null
+                    },
+                    "execution_result": "20.0",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 6 choose 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 6 choose 3</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 16
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\n\nprint(math.pi * (5**3))\n```",
+                        "tokens_per_second": 99.41520467836257,
+                        "provider": "ollama",
+                        "total_duration_ms": 243.8955,
+                        "load_duration_ms": 15.551875,
+                        "errored": null
+                    },
+                    "execution_result": "392.6990816987241",
+                    "expected_result": "523.59875",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute the volume of a sphere with radius 5 using π=3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute the volume of a sphere with radius 5 using π=3.14159</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 17
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\n\nprint(math.sin(math.radians(30)))\n```",
+                        "tokens_per_second": 115.10791366906474,
+                        "provider": "ollama",
+                        "total_duration_ms": 222.920167,
+                        "load_duration_ms": 35.039875,
+                        "errored": null
+                    },
+                    "execution_result": "0.49999999999999994",
+                    "expected_result": "0.5",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute sin(30 degrees) in decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute sin(30 degrees) in decimal form</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 18
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.log(1000, 10))\n```",
+                        "tokens_per_second": 136.36363636363635,
+                        "provider": "ollama",
+                        "total_duration_ms": 223.860166,
+                        "load_duration_ms": 32.935708,
+                        "errored": null
+                    },
+                    "execution_result": "2.9999999999999996",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate log base 10 of 1000 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate log base 10 of 1000</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 19
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\n\nprint(math.exp(2) * 2.71828)\n```",
+                        "tokens_per_second": 123.52941176470587,
+                        "provider": "ollama",
+                        "total_duration_ms": 223.621,
+                        "load_duration_ms": 15.060708,
+                        "errored": null
+                    },
+                    "execution_result": "20.08552341260121",
+                    "expected_result": "7.38906",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute e^2 with e=2.71828 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute e^2 with e=2.71828</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 20
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nresult = (100 - 32) * 5 / 9\nprint(result)\n```",
+                        "tokens_per_second": 129.21348314606743,
+                        "provider": "ollama",
+                        "total_duration_ms": 238.766166,
+                        "load_duration_ms": 15.136833,
+                        "errored": null
+                    },
+                    "execution_result": "37.77777777777778",
+                    "expected_result": "37.78",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 100 fahrenheit to celsius using formula C=(F-32)*5/9 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 100 fahrenheit to celsius using formula C=(F-32)*5/9</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 21
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(2 * (10.5 + 4.2))\n```",
+                        "tokens_per_second": 131.94444444444446,
+                        "provider": "ollama",
+                        "total_duration_ms": 204.508625,
+                        "load_duration_ms": 14.895917,
+                        "errored": null
+                    },
+                    "execution_result": "29.4",
+                    "expected_result": "29.4",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the perimeter of a rectangle with length 10.5 and width 4.2 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the perimeter of a rectangle with length 10.5 and width 4.2</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 22
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(sum(i**2 for i in range(1, 6)))\n```",
+                        "tokens_per_second": 97.0873786407767,
+                        "provider": "ollama",
+                        "total_duration_ms": 267.768042,
+                        "load_duration_ms": 14.62125,
+                        "errored": null
+                    },
+                    "execution_result": "55.0",
+                    "expected_result": "55.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the sum of squares of 1, 2, 3, 4, 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the sum of squares of 1, 2, 3, 4, 5</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 23
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(int(2 + (30 / 60)))\n```\n\nNote: This code will calculate and print the result directly. The division should be interpreted as the number of minutes it takes to convert two hours into one hour, which equals 30. Therefore, adding this to 2 hours would give us a total of 2 + 30 = 32 minutes.",
+                        "tokens_per_second": 141.0488245931284,
+                        "provider": "ollama",
+                        "total_duration_ms": 638.479416,
+                        "load_duration_ms": 33.608458,
+                        "errored": null
+                    },
+                    "execution_result": "2.0",
+                    "expected_result": "150.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 2 hours 30 minutes to total minutes in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 2 hours 30 minutes to total minutes</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 24
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.factorial(7) / math.factorial(3))\n```",
+                        "tokens_per_second": 140.12738853503186,
+                        "provider": "ollama",
+                        "total_duration_ms": 217.728208,
+                        "load_duration_ms": 14.634292,
+                        "errored": null
+                    },
+                    "execution_result": "840.0",
+                    "expected_result": "840.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate what is 7 factorial divided by 3 factorial in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>what is 7 factorial divided by 3 factorial</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 25
+                },
+                {
+                    "prompt_response": {
+                        "response": "```\nimport math\nprint(math.floor(3.99))\n```",
+                        "tokens_per_second": 125.0,
+                        "provider": "ollama",
+                        "total_duration_ms": 172.816542,
+                        "load_duration_ms": 15.211292,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the floor of 3.99 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the floor of 3.99</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 26
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.ceil(3.01))\n```",
+                        "tokens_per_second": 128.0,
+                        "provider": "ollama",
+                        "total_duration_ms": 202.271125,
+                        "load_duration_ms": 35.458,
+                        "errored": null
+                    },
+                    "execution_result": "4.0",
+                    "expected_result": "4.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the ceiling of 3.01 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the ceiling of 3.01</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 27
+                },
+                {
+                    "prompt_response": {
+                        "response": "```\nprint(47 % 5)\n```",
+                        "tokens_per_second": 96.49122807017544,
+                        "provider": "ollama",
+                        "total_duration_ms": 176.918791,
+                        "load_duration_ms": 15.235875,
+                        "errored": null
+                    },
+                    "execution_result": "2.0",
+                    "expected_result": "2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the remainder of 47 divided by 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the remainder of 47 divided by 5</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 28
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nfrom fractions import Fraction\n\nresult = float(Fraction(1, 3) + Fraction(2, 3))\nprint(result)\n```",
+                        "tokens_per_second": 133.33333333333334,
+                        "provider": "ollama",
+                        "total_duration_ms": 333.425167,
+                        "load_duration_ms": 34.279208,
+                        "errored": null
+                    },
+                    "execution_result": "1.0",
+                    "expected_result": "1.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add the decimal expansions of 1/3 and 2/3 up to 3 decimal places in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add the decimal expansions of 1/3 and 2/3 up to 3 decimal places</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 29
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(3 / 8)\n```",
+                        "tokens_per_second": 111.11111111111111,
+                        "provider": "ollama",
+                        "total_duration_ms": 161.382417,
+                        "load_duration_ms": 13.470375,
+                        "errored": null
+                    },
+                    "execution_result": "0.375",
+                    "expected_result": "0.375",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert the fraction 3/8 to decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert the fraction 3/8 to decimal form</statement>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 30
+                }
+            ],
+            "correct_count": 21,
+            "incorrect_count": 9,
+            "accuracy": 0.7,
+            "average_tokens_per_second": 128.79586764596158,
+            "average_total_duration_ms": 319.61775140000003,
+            "average_load_duration_ms": 38.5332486
+        },
+        {
+            "model": "falcon3:10b",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(5 + 5)\n```\n```output\n10\n```",
+                        "tokens_per_second": 44.44444444444444,
+                        "provider": "ollama",
+                        "total_duration_ms": 1079.26625,
+                        "load_duration_ms": 29.60575,
+                        "errored": null
+                    },
+                    "execution_result": "Error:   File \"/var/folders/5x/kqd2skpd1z1d0b_htgj3bhd00000gn/T/tmp89atqb42.py\", line 2\n    ```\n    ^\nSyntaxError: invalid syntax\n",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": false,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "result = ((5 + 5) / 2) * 3\nprint(result)",
+                        "tokens_per_second": 44.21768707482993,
+                        "provider": "ollama",
+                        "total_duration_ms": 923.115125,
+                        "load_duration_ms": 12.105167,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3 * 4 + 7)",
+                        "tokens_per_second": 44.067796610169495,
+                        "provider": "ollama",
+                        "total_duration_ms": 633.520625,
+                        "load_duration_ms": 12.311167,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3 * (20 - 15))",
+                        "tokens_per_second": 45.3257790368272,
+                        "provider": "ollama",
+                        "total_duration_ms": 775.093708,
+                        "load_duration_ms": 12.02425,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 4
+                },
+                {
+                    "prompt_response": {
+                        "response": "result = (100 / 4) + 25\nprint(result)",
+                        "tokens_per_second": 43.32129963898917,
+                        "provider": "ollama",
+                        "total_duration_ms": 977.033,
+                        "load_duration_ms": 12.396875,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate divide 100 by 4 and add 25 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>divide 100 by 4 and add 25</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 5
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(10**2 - 50)",
+                        "tokens_per_second": 45.93639575971732,
+                        "provider": "ollama",
+                        "total_duration_ms": 620.650375,
+                        "load_duration_ms": 13.34725,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 10 squared minus 50 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 10 squared minus 50</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 6
+                },
+                {
+                    "prompt_response": {
+                        "response": "print((10 + 20 + 30) / 3)",
+                        "tokens_per_second": 44.397463002114165,
+                        "provider": "ollama",
+                        "total_duration_ms": 896.199208,
+                        "load_duration_ms": 12.464417,
+                        "errored": null
+                    },
+                    "execution_result": "20.0",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the average of 10, 20, and 30 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the average of 10, 20, and 30</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 7
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(0.15 * 200)",
+                        "tokens_per_second": 44.30379746835443,
+                        "provider": "ollama",
+                        "total_duration_ms": 652.886375,
+                        "load_duration_ms": 12.103208,
+                        "errored": null
+                    },
+                    "execution_result": "30.0",
+                    "expected_result": "30.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 15 percent of 200 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 15 percent of 200</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 8
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(1/2 + 1/4)",
+                        "tokens_per_second": 46.42857142857142,
+                        "provider": "ollama",
+                        "total_duration_ms": 617.127792,
+                        "load_duration_ms": 12.968209,
+                        "errored": null
+                    },
+                    "execution_result": "0.75",
+                    "expected_result": "0.75",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 1/2 and 1/4 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 1/2 and 1/4</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 9
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(2.5 * 4 - 3)",
+                        "tokens_per_second": 45.31722054380664,
+                        "provider": "ollama",
+                        "total_duration_ms": 667.272958,
+                        "load_duration_ms": 13.213291,
+                        "errored": null
+                    },
+                    "execution_result": "7.0",
+                    "expected_result": "7.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 2.5 by 4 and subtract 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 2.5 by 4 and subtract 3</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 10
+                },
+                {
+                    "prompt_response": {
+                        "response": "import cmath\na = 1\nb = 5\nc = 6\ndiscriminant = (b**2 - 4*a*c)\nroot1 = (-b - cmath.sqrt(discriminant)) / (2 * a)\nroot2 = (-b + cmath.sqrt(discriminant)) / (2 * a)\nprint(max(root1.real, root2.real))",
+                        "tokens_per_second": 42.433345850544505,
+                        "provider": "ollama",
+                        "total_duration_ms": 3094.026417,
+                        "load_duration_ms": 12.142959,
+                        "errored": null
+                    },
+                    "execution_result": "-2.0",
+                    "expected_result": "-2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate solve the quadratic equation x² + 5x + 6 = 0 and return the largest root in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>solve the quadratic equation x² + 5x + 6 = 0 and return the largest root</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 11
+                },
+                {
+                    "prompt_response": {
+                        "response": "principal = 1000\nrate = 0.05\nyears = 3\nfinal_amount = principal * (1 + rate) ** years\nprint(final_amount)",
+                        "tokens_per_second": 42.58943781942079,
+                        "provider": "ollama",
+                        "total_duration_ms": 1603.801791,
+                        "load_duration_ms": 12.411,
+                        "errored": null
+                    },
+                    "execution_result": "1157.6250000000002",
+                    "expected_result": "1157.63",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": false,
+                    "index": 12
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nradius = 5\npi = 3.14159\narea = pi * (radius ** 2)\nprint(area)",
+                        "tokens_per_second": 42.2680412371134,
+                        "provider": "ollama",
+                        "total_duration_ms": 1397.165375,
+                        "load_duration_ms": 12.210292,
+                        "errored": null
+                    },
+                    "execution_result": "78.53975",
+                    "expected_result": "78.53975",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the area of a circle with radius 5 using π = 3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the area of a circle with radius 5 using π = 3.14159</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 13
+                },
+                {
+                    "prompt_response": {
+                        "response": "from math import gcd\nprint(gcd(48, 18))",
+                        "tokens_per_second": 43.87990762124711,
+                        "provider": "ollama",
+                        "total_duration_ms": 856.236167,
+                        "load_duration_ms": 12.108042,
+                        "errored": null
+                    },
+                    "execution_result": "6.0",
+                    "expected_result": "6.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the greatest common divisor of 48 and 18 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the greatest common divisor of 48 and 18</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 14
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nprint(math.factorial(5))",
+                        "tokens_per_second": 44.98269896193772,
+                        "provider": "ollama",
+                        "total_duration_ms": 623.535792,
+                        "load_duration_ms": 12.389417,
+                        "errored": null
+                    },
+                    "execution_result": "120.0",
+                    "expected_result": "120.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the factorial of 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the factorial of 5</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 15
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nprint(math.comb(6, 3))",
+                        "tokens_per_second": 44.510385756676556,
+                        "provider": "ollama",
+                        "total_duration_ms": 672.267792,
+                        "load_duration_ms": 13.355584,
+                        "errored": null
+                    },
+                    "execution_result": "20.0",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 6 choose 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 6 choose 3</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 16
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nradius = 5\npi = 3.14159\nvolume = (4/3) * pi * (radius ** 3)\nprint(volume)",
+                        "tokens_per_second": 42.132416165090284,
+                        "provider": "ollama",
+                        "total_duration_ms": 1590.526375,
+                        "load_duration_ms": 12.588167,
+                        "errored": null
+                    },
+                    "execution_result": "523.5983333333332",
+                    "expected_result": "523.59875",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute the volume of a sphere with radius 5 using π=3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute the volume of a sphere with radius 5 using π=3.14159</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": false,
+                    "index": 17
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nprint(math.sin(math.radians(30)))",
+                        "tokens_per_second": 43.79562043795621,
+                        "provider": "ollama",
+                        "total_duration_ms": 746.747875,
+                        "load_duration_ms": 11.965292,
+                        "errored": null
+                    },
+                    "execution_result": "0.49999999999999994",
+                    "expected_result": "0.5",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute sin(30 degrees) in decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute sin(30 degrees) in decimal form</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 18
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nprint(math.log10(1000))",
+                        "tokens_per_second": 43.81443298969072,
+                        "provider": "ollama",
+                        "total_duration_ms": 725.54275,
+                        "load_duration_ms": 12.096417,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate log base 10 of 1000 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate log base 10 of 1000</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 19
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nresult = math.pow(2.71828, 2)\nprint(result)",
+                        "tokens_per_second": 42.789223454833596,
+                        "provider": "ollama",
+                        "total_duration_ms": 1054.732084,
+                        "load_duration_ms": 11.93675,
+                        "errored": null
+                    },
+                    "execution_result": "7.3890461584",
+                    "expected_result": "7.38906",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute e^2 with e=2.71828 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute e^2 with e=2.71828</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": false,
+                    "index": 20
+                },
+                {
+                    "prompt_response": {
+                        "response": "C = (100 - 32) * 5 / 9\nprint(C)",
+                        "tokens_per_second": 42.4886191198786,
+                        "provider": "ollama",
+                        "total_duration_ms": 1089.29825,
+                        "load_duration_ms": 12.476667,
+                        "errored": null
+                    },
+                    "execution_result": "37.77777777777778",
+                    "expected_result": "37.78",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 100 fahrenheit to celsius using formula C=(F-32)*5/9 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 100 fahrenheit to celsius using formula C=(F-32)*5/9</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": false,
+                    "index": 21
+                },
+                {
+                    "prompt_response": {
+                        "response": "2 * (10.5 + 4.2)\n\n",
+                        "tokens_per_second": 43.28018223234624,
+                        "provider": "ollama",
+                        "total_duration_ms": 864.64625,
+                        "load_duration_ms": 12.018458,
+                        "errored": null
+                    },
+                    "execution_result": "",
+                    "expected_result": "29.4",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the perimeter of a rectangle with length 10.5 and width 4.2 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the perimeter of a rectangle with length 10.5 and width 4.2</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": false,
+                    "index": 22
+                },
+                {
+                    "prompt_response": {
+                        "response": "sum_of_squares = sum(i**2 for i in range(1, 6))\nprint(sum_of_squares)",
+                        "tokens_per_second": 42.5531914893617,
+                        "provider": "ollama",
+                        "total_duration_ms": 1180.122792,
+                        "load_duration_ms": 12.752417,
+                        "errored": null
+                    },
+                    "execution_result": "55.0",
+                    "expected_result": "55.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the sum of squares of 1, 2, 3, 4, 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the sum of squares of 1, 2, 3, 4, 5</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 23
+                },
+                {
+                    "prompt_response": {
+                        "response": "total_minutes = 2 * 60 + 30\nprint(total_minutes)",
+                        "tokens_per_second": 43.40277777777778,
+                        "provider": "ollama",
+                        "total_duration_ms": 912.548917,
+                        "load_duration_ms": 12.190333,
+                        "errored": null
+                    },
+                    "execution_result": "150.0",
+                    "expected_result": "150.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 2 hours 30 minutes to total minutes in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 2 hours 30 minutes to total minutes</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 24
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nresult = math.factorial(7) // math.factorial(3)\nprint(result)",
+                        "tokens_per_second": 42.5531914893617,
+                        "provider": "ollama",
+                        "total_duration_ms": 997.803166,
+                        "load_duration_ms": 12.156083,
+                        "errored": null
+                    },
+                    "execution_result": "840.0",
+                    "expected_result": "840.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate what is 7 factorial divided by 3 factorial in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>what is 7 factorial divided by 3 factorial</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 25
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.floor(3.99))\n```",
+                        "tokens_per_second": 43.859649122807014,
+                        "provider": "ollama",
+                        "total_duration_ms": 793.465417,
+                        "load_duration_ms": 12.546917,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the floor of 3.99 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the floor of 3.99</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 26
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.ceil(3.01))\n```",
+                        "tokens_per_second": 43.66812227074236,
+                        "provider": "ollama",
+                        "total_duration_ms": 807.024708,
+                        "load_duration_ms": 22.643291,
+                        "errored": null
+                    },
+                    "execution_result": "4.0",
+                    "expected_result": "4.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the ceiling of 3.01 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the ceiling of 3.01</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 27
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(47 % 5)",
+                        "tokens_per_second": 44.44444444444444,
+                        "provider": "ollama",
+                        "total_duration_ms": 565.195917,
+                        "load_duration_ms": 13.436042,
+                        "errored": null
+                    },
+                    "execution_result": "2.0",
+                    "expected_result": "2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the remainder of 47 divided by 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the remainder of 47 divided by 5</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 28
+                },
+                {
+                    "prompt_response": {
+                        "response": "result = round(1/3 + 2/3, 3)\nprint(result)",
+                        "tokens_per_second": 43.55716878402904,
+                        "provider": "ollama",
+                        "total_duration_ms": 977.4455,
+                        "load_duration_ms": 12.4175,
+                        "errored": null
+                    },
+                    "execution_result": "1.0",
+                    "expected_result": "1.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add the decimal expansions of 1/3 and 2/3 up to 3 decimal places in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add the decimal expansions of 1/3 and 2/3 up to 3 decimal places</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": true,
+                    "index": 29
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(3 / 8)\n```\n```output\n0.375\n```\nThe decimal form of the fraction \\( \\frac{3}{8} \\) is \\(\\boxed{0.375}\\).",
+                        "tokens_per_second": 42.073628850488355,
+                        "provider": "ollama",
+                        "total_duration_ms": 1670.263291,
+                        "load_duration_ms": 12.155,
+                        "errored": null
+                    },
+                    "execution_result": "Error:   File \"/var/folders/5x/kqd2skpd1z1d0b_htgj3bhd00000gn/T/tmpalkrvmco.py\", line 2\n    ```\n    ^\nSyntaxError: invalid syntax\n",
+                    "expected_result": "0.375",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert the fraction 3/8 to decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert the fraction 3/8 to decimal form</statement>\n",
+                    "model": "falcon3:10b",
+                    "correct": false,
+                    "index": 30
+                }
+            ],
+            "correct_count": 23,
+            "incorrect_count": 7,
+            "accuracy": 0.7666666666666667,
+            "average_tokens_per_second": 43.76123136278575,
+            "average_total_duration_ms": 1002.1520680666667,
+            "average_load_duration_ms": 13.351207066666666
+        },
+        {
+            "model": "anthropic~claude-3-5-sonnet-latest",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "print(5 + 5)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 547.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "10.0",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(((5 + 5) / 2) * 3)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 663.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3 * 4 + 7)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 466.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "print((20 - 15) * 3)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 455.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 4
+                },
+                {
+                    "prompt_response": {
+                        "response": "result = 100 / 4 + 25\nprint(result)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 971.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate divide 100 by 4 and add 25 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>divide 100 by 4 and add 25</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 5
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(10**2 - 50)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 663.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 10 squared minus 50 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 10 squared minus 50</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 6
+                },
+                {
+                    "prompt_response": {
+                        "response": "print((10 + 20 + 30) / 3)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 534.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "20.0",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the average of 10, 20, and 30 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the average of 10, 20, and 30</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 7
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(200 * 0.15)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 1412.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "30.0",
+                    "expected_result": "30.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 15 percent of 200 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 15 percent of 200</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 8
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(1/2 + 1/4)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 583.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "0.75",
+                    "expected_result": "0.75",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 1/2 and 1/4 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 1/2 and 1/4</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 9
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(2.5 * 4 - 3)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 578.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "7.0",
+                    "expected_result": "7.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 2.5 by 4 and subtract 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 2.5 by 4 and subtract 3</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 10
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\na = 1\nb = 5\nc = 6\nx = (-b + math.sqrt(b**2 - 4*a*c))/(2*a)\nprint(x)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 911.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "-2.0",
+                    "expected_result": "-2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate solve the quadratic equation x² + 5x + 6 = 0 and return the largest root in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>solve the quadratic equation x² + 5x + 6 = 0 and return the largest root</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 11
+                },
+                {
+                    "prompt_response": {
+                        "response": "principal = 1000\nrate = 0.05\ntime = 3\namount = principal * (1 + rate) ** time\nprint(amount)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 1187.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "1157.6250000000002",
+                    "expected_result": "1157.63",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": false,
+                    "index": 12
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3.14159 * 5 ** 2)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 665.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "78.53975",
+                    "expected_result": "78.53975",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the area of a circle with radius 5 using π = 3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the area of a circle with radius 5 using π = 3.14159</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 13
+                },
+                {
+                    "prompt_response": {
+                        "response": "def gcd(a, b):\n    while b:\n        a, b = b, a % b\n    return a\n\nprint(gcd(48, 18))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 966.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "6.0",
+                    "expected_result": "6.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the greatest common divisor of 48 and 18 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the greatest common divisor of 48 and 18</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 14
+                },
+                {
+                    "prompt_response": {
+                        "response": "def factorial(n):\n    if n == 0:\n        return 1\n    return n * factorial(n-1)\n\nprint(factorial(5))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 1176.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "120.0",
+                    "expected_result": "120.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the factorial of 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the factorial of 5</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 15
+                },
+                {
+                    "prompt_response": {
+                        "response": "from math import comb\nprint(comb(6, 3))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 767.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "20.0",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 6 choose 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 6 choose 3</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 16
+                },
+                {
+                    "prompt_response": {
+                        "response": "print((4/3) * 3.14159 * 5**3)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 810.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "523.5983333333332",
+                    "expected_result": "523.59875",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute the volume of a sphere with radius 5 using π=3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute the volume of a sphere with radius 5 using π=3.14159</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": false,
+                    "index": 17
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nprint(math.sin(math.radians(30)))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 616.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "0.49999999999999994",
+                    "expected_result": "0.5",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute sin(30 degrees) in decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute sin(30 degrees) in decimal form</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 18
+                },
+                {
+                    "prompt_response": {
+                        "response": "from math import log10\nprint(log10(1000))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 474.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate log base 10 of 1000 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate log base 10 of 1000</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 19
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(2.71828 ** 2)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 1116.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "7.3890461584",
+                    "expected_result": "7.38906",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute e^2 with e=2.71828 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute e^2 with e=2.71828</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": false,
+                    "index": 20
+                },
+                {
+                    "prompt_response": {
+                        "response": "print((100-32)*5/9)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 824.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "37.77777777777778",
+                    "expected_result": "37.78",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 100 fahrenheit to celsius using formula C=(F-32)*5/9 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 100 fahrenheit to celsius using formula C=(F-32)*5/9</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": false,
+                    "index": 21
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(2 * (10.5 + 4.2))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 768.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "29.4",
+                    "expected_result": "29.4",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the perimeter of a rectangle with length 10.5 and width 4.2 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the perimeter of a rectangle with length 10.5 and width 4.2</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 22
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(sum(x**2 for x in range(1,6)))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 702.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "55.0",
+                    "expected_result": "55.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the sum of squares of 1, 2, 3, 4, 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the sum of squares of 1, 2, 3, 4, 5</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 23
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(2 * 60 + 30)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 633.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "150.0",
+                    "expected_result": "150.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 2 hours 30 minutes to total minutes in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 2 hours 30 minutes to total minutes</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 24
+                },
+                {
+                    "prompt_response": {
+                        "response": "from math import factorial\nprint(factorial(7) // factorial(3))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 1377.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "840.0",
+                    "expected_result": "840.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate what is 7 factorial divided by 3 factorial in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>what is 7 factorial divided by 3 factorial</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 25
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nprint(math.floor(3.99))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 675.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the floor of 3.99 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the floor of 3.99</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 26
+                },
+                {
+                    "prompt_response": {
+                        "response": "import math\nprint(math.ceil(3.01))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 1690.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "4.0",
+                    "expected_result": "4.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the ceiling of 3.01 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the ceiling of 3.01</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 27
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(47 % 5)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 558.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "2.0",
+                    "expected_result": "2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the remainder of 47 divided by 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the remainder of 47 divided by 5</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 28
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(round(round(1/3, 3) + round(2/3, 3), 3))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 699.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "1.0",
+                    "expected_result": "1.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add the decimal expansions of 1/3 and 2/3 up to 3 decimal places in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add the decimal expansions of 1/3 and 2/3 up to 3 decimal places</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 29
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3/8)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 641.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "0.375",
+                    "expected_result": "0.375",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert the fraction 3/8 to decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert the fraction 3/8 to decimal form</statement>\n",
+                    "model": "anthropic~claude-3-5-sonnet-latest",
+                    "correct": true,
+                    "index": 30
+                }
+            ],
+            "correct_count": 26,
+            "incorrect_count": 4,
+            "accuracy": 0.8666666666666667,
+            "average_tokens_per_second": 0.0,
+            "average_total_duration_ms": 804.2333333333333,
+            "average_load_duration_ms": 0.0
+        },
+        {
+            "model": "deepseek~deepseek-chat",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(5 + 5)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1175.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "10.0",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nresult = ((5 + 5) / 2) * 3\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1791.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(3 * 4 + 7)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1382.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint((20 - 15) * 3)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1891.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 4
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nresult = 100 / 4 + 25\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 2196.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate divide 100 by 4 and add 25 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>divide 100 by 4 and add 25</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 5
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(10**2 - 50)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1314.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "50.0",
+                    "expected_result": "50.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 10 squared minus 50 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 10 squared minus 50</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 6
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint((10 + 20 + 30) / 3)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1145.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "20.0",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the average of 10, 20, and 30 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the average of 10, 20, and 30</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 7
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(200 * 0.15)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1617.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "30.0",
+                    "expected_result": "30.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 15 percent of 200 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 15 percent of 200</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 8
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(1/2 + 1/4)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1758.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "0.75",
+                    "expected_result": "0.75",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 1/2 and 1/4 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 1/2 and 1/4</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 9
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(2.5 * 4 - 3)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1686.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "7.0",
+                    "expected_result": "7.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 2.5 by 4 and subtract 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 2.5 by 4 and subtract 3</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 10
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\n\na = 1\nb = 5\nc = 6\n\ndiscriminant = b**2 - 4*a*c\nroot1 = (-b + math.sqrt(discriminant)) / (2*a)\nroot2 = (-b - math.sqrt(discriminant)) / (2*a)\n\nprint(max(root1, root2))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 3118.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "-2.0",
+                    "expected_result": "-2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate solve the quadratic equation x² + 5x + 6 = 0 and return the largest root in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>solve the quadratic equation x² + 5x + 6 = 0 and return the largest root</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 11
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprincipal = 1000\nrate = 0.05\ntime = 3\namount = principal * (1 + rate) ** time\nprint(amount)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1787.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "1157.6250000000002",
+                    "expected_result": "1157.63",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the compound interest for $1000 at 5% annual rate over 3 years and return the final amount</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": false,
+                    "index": 12
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nradius = 5\npi = 3.14159\narea = pi * (radius ** 2)\nprint(area)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1894.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "78.53975",
+                    "expected_result": "78.53975",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the area of a circle with radius 5 using π = 3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the area of a circle with radius 5 using π = 3.14159</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 13
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.gcd(48, 18))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1485.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "6.0",
+                    "expected_result": "6.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate find the greatest common divisor of 48 and 18 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>find the greatest common divisor of 48 and 18</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 14
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.factorial(5))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1586.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "120.0",
+                    "expected_result": "120.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the factorial of 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the factorial of 5</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 15
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nfrom math import comb\nprint(comb(6, 3))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1587.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "20.0",
+                    "expected_result": "20.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate 6 choose 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate 6 choose 3</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 16
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nradius = 5\nvolume = (4/3) * math.pi * radius**3\nprint(volume)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1688.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "523.5987755982989",
+                    "expected_result": "523.59875",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute the volume of a sphere with radius 5 using π=3.14159 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute the volume of a sphere with radius 5 using π=3.14159</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": false,
+                    "index": 17
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.sin(math.radians(30)))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1382.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "0.49999999999999994",
+                    "expected_result": "0.5",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute sin(30 degrees) in decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute sin(30 degrees) in decimal form</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 18
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.log10(1000))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1760.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate log base 10 of 1000 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate log base 10 of 1000</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 19
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ne = 2.71828\nresult = e ** 2\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1613.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "7.3890461584",
+                    "expected_result": "7.38906",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate compute e^2 with e=2.71828 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>compute e^2 with e=2.71828</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": false,
+                    "index": 20
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint((100 - 32) * 5 / 9)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1376.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "37.77777777777778",
+                    "expected_result": "37.78",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 100 fahrenheit to celsius using formula C=(F-32)*5/9 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 100 fahrenheit to celsius using formula C=(F-32)*5/9</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": false,
+                    "index": 21
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nlength = 10.5\nwidth = 4.2\nperimeter = 2 * (length + width)\nprint(perimeter)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 2503.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "29.4",
+                    "expected_result": "29.4",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the perimeter of a rectangle with length 10.5 and width 4.2 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the perimeter of a rectangle with length 10.5 and width 4.2</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 22
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(1**2 + 2**2 + 3**2 + 4**2 + 5**2)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1595.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "55.0",
+                    "expected_result": "55.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the sum of squares of 1, 2, 3, 4, 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the sum of squares of 1, 2, 3, 4, 5</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 23
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(2 * 60 + 30)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1377.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "150.0",
+                    "expected_result": "150.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert 2 hours 30 minutes to total minutes in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert 2 hours 30 minutes to total minutes</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 24
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.factorial(7) // math.factorial(3))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1596.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "840.0",
+                    "expected_result": "840.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate what is 7 factorial divided by 3 factorial in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>what is 7 factorial divided by 3 factorial</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 25
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.floor(3.99))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1481.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the floor of 3.99 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the floor of 3.99</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 26
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nimport math\nprint(math.ceil(3.01))\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1995.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "4.0",
+                    "expected_result": "4.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate evaluate the ceiling of 3.01 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>evaluate the ceiling of 3.01</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 27
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(47 % 5)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1386.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "2.0",
+                    "expected_result": "2.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate calculate the remainder of 47 divided by 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>calculate the remainder of 47 divided by 5</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 28
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nresult = round(1/3, 3) + round(2/3, 3)\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1443.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "1.0",
+                    "expected_result": "1.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add the decimal expansions of 1/3 and 2/3 up to 3 decimal places in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add the decimal expansions of 1/3 and 2/3 up to 3 decimal places</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 29
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(3 / 8)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1831.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "0.375",
+                    "expected_result": "0.375",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate convert the fraction 3/8 to decimal form in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>convert the fraction 3/8 to decimal form</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 30
+                }
+            ],
+            "correct_count": 26,
+            "incorrect_count": 4,
+            "accuracy": 0.8666666666666667,
+            "average_tokens_per_second": 0.0,
+            "average_total_duration_ms": 1681.2666666666667,
+            "average_load_duration_ms": 0.0
+        }
+    ],
+    "overall_correct_count": 96,
+    "overall_incorrect_count": 24,
+    "overall_accuracy": 0.8,
+    "average_tokens_per_second": 43.139274752186836,
+    "average_total_duration_ms": 951.8174548666667,
+    "average_load_duration_ms": 12.971113916666667
+}

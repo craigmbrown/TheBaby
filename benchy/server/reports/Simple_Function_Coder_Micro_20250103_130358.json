@@ -1,0 +1,387 @@
+{
+    "benchmark_name": "Simple Function Coder Micro",
+    "purpose": "Evaluate the ability of a language model to generate and execute a function.",
+    "models": [
+        {
+            "model": "llama3.2:1b",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "```\ndef add(x, y):\n    return x + y\n\nprint(add(3, 4))  # Output: 7\n```",
+                        "tokens_per_second": 146.91943127962085,
+                        "provider": "ollama",
+                        "total_duration_ms": 947.742334,
+                        "load_duration_ms": 555.965792,
+                        "errored": null
+                    },
+                    "execution_result": "7.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def add(a, b): int - add two numbers\n</function-request>\n\n<function-arguments>\n    1, 2\n</function-arguments>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "```\ndef multiply_numbers_in_list(numbers):\n    result = 1\n    for number in numbers:\n        result *= number\n    return result\n\nnumbers = [2, 3, 4]\nresult = multiply_numbers_in_list(numbers)\nprint(result)\n```",
+                        "tokens_per_second": 145.55256064690028,
+                        "provider": "ollama",
+                        "total_duration_ms": 410.354084,
+                        "load_duration_ms": 13.920084,
+                        "errored": null
+                    },
+                    "execution_result": "24.0",
+                    "expected_result": "24.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def multiply_list(numbers: list) -> int - multiply all numbers in a list together\n</function-request>\n\n<function-arguments>\n    [2, 3, 4]\n</function-arguments>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "```\ndef reverse_string(text: str) -> str:\n    return text[::-1]\n\nprint(reverse_string('hello world'))\n```",
+                        "tokens_per_second": 128.57142857142858,
+                        "provider": "ollama",
+                        "total_duration_ms": 252.37275,
+                        "load_duration_ms": 14.904834,
+                        "errored": null
+                    },
+                    "execution_result": "dlrow olleh\n",
+                    "expected_result": "dlrow olleh",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def reverse_string(text: str) -> str - reverse the characters in a string\n</function-request>\n\n<function-arguments>\n    'hello world'\n</function-arguments>\n",
+                    "model": "llama3.2:1b",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "```\ndef count_vowels_and_beautiful(text: str) -> int:\n    # Initialize counter for vowels and beautiful request\n    vowel_count = 0\n    beautiful_request = False\n    \n    # Loop through each character in the text\n    for char in text:\n        # Check if character is a vowel (a, e, i, o, u)\n        if char.lower() in 'aeiou':\n            # If it's a vowel, increment the vowel count and mark as beautiful request\n            vowel_count += 1\n            beautiful_request = True\n            \n    # Return the total vowel count and whether the text is beautiful\n    return vowel_count + (beautiful_request and 1)\n\n# Call the function with provided arguments\ntext = 'beautiful'\nresult = count_vowels_and_beautiful(text)\nprint(f\"The number of vowels in '{text}' is: {result}\")\nif result == 6:\n    print(\"The text is indeed beautiful.\")\nelse:\n    print(\"The text is not beautiful.\")\n\n# Print the result\nprint(result)\n```",
+                        "tokens_per_second": 145.81939799331101,
+                        "provider": "ollama",
+                        "total_duration_ms": 1550.555292,
+                        "load_duration_ms": 15.743708,
+                        "errored": null
+                    },
+                    "execution_result": "The number of vowels in 'beautiful' is: 6\nThe text is indeed beautiful.\n6\n",
+                    "expected_result": "5.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def count_vowels(text: str) -> int - count the number of vowels in a string\n</function-request>\n\n<function-arguments>\n    'beautiful'\n</function-arguments>\n",
+                    "model": "llama3.2:1b",
+                    "correct": false,
+                    "index": 4
+                }
+            ],
+            "correct_count": 2,
+            "incorrect_count": 2,
+            "accuracy": 0.5,
+            "average_tokens_per_second": 141.71570462281517,
+            "average_total_duration_ms": 790.256115,
+            "average_load_duration_ms": 150.1336045
+        },
+        {
+            "model": "llama3.2:latest",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "def add(a, b):\n    \"\"\"Return the sum of two numbers.\"\"\"\n    return a + b\n\n# Call the function with the provided arguments.\nresult = add(1, 2)\n\n# Print the result.\nprint(result)",
+                        "tokens_per_second": 97.75967413441956,
+                        "provider": "ollama",
+                        "total_duration_ms": 1328.736959,
+                        "load_duration_ms": 557.61325,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def add(a, b): int - add two numbers\n</function-request>\n\n<function-arguments>\n    1, 2\n</function-arguments>\n",
+                    "model": "llama3.2:latest",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "def multiply_list(numbers: list) -> int:\n    \"\"\"\n    This function takes a list of numbers as input and returns the product of all numbers in the list.\n    \n    Args:\n        numbers (list): A list of integers.\n    \n    Returns:\n        int: The product of all numbers in the list.\n    \"\"\"\n    product = 1\n    for number in numbers:\n        # Multiply each number with the current product\n        product *= number\n    return product\n\n# Call the function with the provided arguments\nresult = multiply_list([2, 3, 4])\n\n# Print the result\nprint(result)",
+                        "tokens_per_second": 94.63487332339791,
+                        "provider": "ollama",
+                        "total_duration_ms": 1426.073084,
+                        "load_duration_ms": 15.376084,
+                        "errored": null
+                    },
+                    "execution_result": "24.0",
+                    "expected_result": "24.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def multiply_list(numbers: list) -> int - multiply all numbers in a list together\n</function-request>\n\n<function-arguments>\n    [2, 3, 4]\n</function-arguments>\n",
+                    "model": "llama3.2:latest",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "def reverse_string(text: str) -> str:\n    \"\"\"\n    Reverses the characters in a given string.\n\n    Args:\n        text (str): The input string to be reversed.\n\n    Returns:\n        str: The reversed string.\n    \"\"\"\n\n    # Use slicing to get the characters from the end of the string\n    return text[::-1]\n\n# Call the function with the provided arguments\nresult = reverse_string('hello world')\n\n# Print the result\nprint(result)",
+                        "tokens_per_second": 88.90925756186985,
+                        "provider": "ollama",
+                        "total_duration_ms": 1175.841208,
+                        "load_duration_ms": 16.566666,
+                        "errored": null
+                    },
+                    "execution_result": "dlrow olleh\n",
+                    "expected_result": "dlrow olleh",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def reverse_string(text: str) -> str - reverse the characters in a string\n</function-request>\n\n<function-arguments>\n    'hello world'\n</function-arguments>\n",
+                    "model": "llama3.2:latest",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "def count_vowels(text):\n    \"\"\"\n    This function takes a string as an input and returns the number of vowels present in it.\n\n    Parameters:\n    text (str): The input string to be checked for vowels.\n\n    Returns:\n    int: The total number of vowels found in the given string.\n    \"\"\"\n\n    # Convert the input string into lowercase to handle both uppercase and lowercase vowels\n    text = text.lower()\n\n    # Initialize a counter variable to store the count of vowels\n    vowel_count = 0\n\n    # Define the set of vowels (both lowercase and uppercase)\n    vowels = set('aeiou')\n\n    # Iterate over each character in the input string\n    for char in text:\n        # Check if the character is a vowel\n        if char in vowels:\n            # If it's a vowel, increment the counter\n            vowel_count += 1\n\n    # Return the total count of vowels found in the string\n    return vowel_count\n\n\n# Call the function with the provided argument and print the result\nresult = count_vowels('beautiful')\nprint(result)",
+                        "tokens_per_second": 94.13254537779653,
+                        "provider": "ollama",
+                        "total_duration_ms": 2453.692125,
+                        "load_duration_ms": 16.257209,
+                        "errored": null
+                    },
+                    "execution_result": "5.0",
+                    "expected_result": "5.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def count_vowels(text: str) -> int - count the number of vowels in a string\n</function-request>\n\n<function-arguments>\n    'beautiful'\n</function-arguments>\n",
+                    "model": "llama3.2:latest",
+                    "correct": true,
+                    "index": 4
+                }
+            ],
+            "correct_count": 4,
+            "incorrect_count": 0,
+            "accuracy": 1.0,
+            "average_tokens_per_second": 93.85908759937097,
+            "average_total_duration_ms": 1596.0858440000002,
+            "average_load_duration_ms": 151.45330225
+        },
+        {
+            "model": "ollama~falcon3:10b",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef add(a, b):\n    return a + b\n\nresult = add(1, 2)\nprint(result)\n```",
+                        "tokens_per_second": 43.68358913813459,
+                        "provider": "ollama",
+                        "total_duration_ms": 2172.466292,
+                        "load_duration_ms": 553.145083,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def add(a, b): int - add two numbers\n</function-request>\n\n<function-arguments>\n    1, 2\n</function-arguments>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef multiply_list(numbers: list) -> int:\n    result = 1\n    for num in numbers:\n        result *= num\n    return result\n\nprint(multiply_list([2, 3, 4]))\n```",
+                        "tokens_per_second": 42.97159504734159,
+                        "provider": "ollama",
+                        "total_duration_ms": 1575.129,
+                        "load_duration_ms": 13.616292,
+                        "errored": null
+                    },
+                    "execution_result": "24.0",
+                    "expected_result": "24.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def multiply_list(numbers: list) -> int - multiply all numbers in a list together\n</function-request>\n\n<function-arguments>\n    [2, 3, 4]\n</function-arguments>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef reverse_string(text: str) -> str:\n    return text[::-1]\n\nresult = reverse_string('hello world')\nprint(result)\n```",
+                        "tokens_per_second": 42.80155642023346,
+                        "provider": "ollama",
+                        "total_duration_ms": 1227.169041,
+                        "load_duration_ms": 12.5845,
+                        "errored": null
+                    },
+                    "execution_result": "dlrow olleh\n",
+                    "expected_result": "dlrow olleh",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def reverse_string(text: str) -> str - reverse the characters in a string\n</function-request>\n\n<function-arguments>\n    'hello world'\n</function-arguments>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef count_vowels(text: str) -> int:\n    vowels = 'aeiouAEIOU'\n    return sum(1 for char in text if char in vowels)\n\nresult = count_vowels('beautiful')\nprint(result)\n```",
+                        "tokens_per_second": 42.59376986649714,
+                        "provider": "ollama",
+                        "total_duration_ms": 1772.811375,
+                        "load_duration_ms": 12.985,
+                        "errored": null
+                    },
+                    "execution_result": "5.0",
+                    "expected_result": "5.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def count_vowels(text: str) -> int - count the number of vowels in a string\n</function-request>\n\n<function-arguments>\n    'beautiful'\n</function-arguments>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": true,
+                    "index": 4
+                }
+            ],
+            "correct_count": 4,
+            "incorrect_count": 0,
+            "accuracy": 1.0,
+            "average_tokens_per_second": 43.012627618051695,
+            "average_total_duration_ms": 1686.893927,
+            "average_load_duration_ms": 148.08271875
+        },
+        {
+            "model": "anthropic~claude-3-5-haiku-latest",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "def add(a, b):\n    return a + b\n\nresult = add(1, 2)\nprint(result)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 824.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def add(a, b): int - add two numbers\n</function-request>\n\n<function-arguments>\n    1, 2\n</function-arguments>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "def multiply_list(numbers: list) -> int:\n    result = 1\n    for num in numbers:\n        result *= num\n    return result\n\nresult = multiply_list([2, 3, 4])\nprint(result)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 968.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "24.0",
+                    "expected_result": "24.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def multiply_list(numbers: list) -> int - multiply all numbers in a list together\n</function-request>\n\n<function-arguments>\n    [2, 3, 4]\n</function-arguments>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "def reverse_string(text: str) -> str:\n    return text[::-1]\n\nprint(reverse_string('hello world'))",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 681.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "dlrow olleh\n",
+                    "expected_result": "dlrow olleh",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def reverse_string(text: str) -> str - reverse the characters in a string\n</function-request>\n\n<function-arguments>\n    'hello world'\n</function-arguments>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "def count_vowels(text: str) -> int:\n    vowels = 'aeiouAEIOU'\n    return sum(1 for char in text if char in vowels)\n\nresult = count_vowels('beautiful')\nprint(result)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 1041.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "5.0",
+                    "expected_result": "5.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def count_vowels(text: str) -> int - count the number of vowels in a string\n</function-request>\n\n<function-arguments>\n    'beautiful'\n</function-arguments>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 4
+                }
+            ],
+            "correct_count": 4,
+            "incorrect_count": 0,
+            "accuracy": 1.0,
+            "average_tokens_per_second": 0.0,
+            "average_total_duration_ms": 878.5,
+            "average_load_duration_ms": 0.0
+        },
+        {
+            "model": "deepseek~deepseek-chat",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef add(a, b):\n    return a + b\n\nresult = add(1, 2)\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 2512.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "3.0",
+                    "expected_result": "3.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def add(a, b): int - add two numbers\n</function-request>\n\n<function-arguments>\n    1, 2\n</function-arguments>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef multiply_list(numbers: list) -> int:\n    result = 1\n    for num in numbers:\n        result *= num\n    return result\n\nresult = multiply_list([2, 3, 4])\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 2109.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "24.0",
+                    "expected_result": "24.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def multiply_list(numbers: list) -> int - multiply all numbers in a list together\n</function-request>\n\n<function-arguments>\n    [2, 3, 4]\n</function-arguments>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef reverse_string(text: str) -> str:\n    return text[::-1]\n\nresult = reverse_string('hello world')\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 2095.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "dlrow olleh\n",
+                    "expected_result": "dlrow olleh",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def reverse_string(text: str) -> str - reverse the characters in a string\n</function-request>\n\n<function-arguments>\n    'hello world'\n</function-arguments>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\ndef count_vowels(text: str) -> int:\n    vowels = \"aeiouAEIOU\"\n    return sum(1 for char in text if char in vowels)\n\nresult = count_vowels('beautiful')\nprint(result)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 2298.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "5.0",
+                    "expected_result": "5.0",
+                    "input_prompt": "<purpose>\n    Generate a function for a given function-request. Then call the function with the provided arguments. Then print the result.\n</purpose>\n\n<instructions>\n    <instruction>Generate only the function requested by the user.</instruction>\n    <instruction>Fill in the function body with the appropriate code.</instruction>\n    <instruction>Do not include any other text.</instruction>\n    <instruction>Write code in python 3.</instruction>\n    <instruction>Generate the function, call the function, and print the result.</instruction>\n    <instruction>Code should be clean and readable.</instruction>\n    <instruction>Your code be immediately executed as is. Make sure it's runnable.</instruction>\n</instructions>\n\n<function-request>\n    def count_vowels(text: str) -> int - count the number of vowels in a string\n</function-request>\n\n<function-arguments>\n    'beautiful'\n</function-arguments>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 4
+                }
+            ],
+            "correct_count": 4,
+            "incorrect_count": 0,
+            "accuracy": 1.0,
+            "average_tokens_per_second": 0.0,
+            "average_total_duration_ms": 2253.5,
+            "average_load_duration_ms": 0.0
+        }
+    ],
+    "overall_correct_count": 18,
+    "overall_incorrect_count": 2,
+    "overall_accuracy": 0.9,
+    "average_tokens_per_second": 55.71748396804757,
+    "average_total_duration_ms": 1441.0471772,
+    "average_load_duration_ms": 89.9339251
+}

@@ -1,0 +1,312 @@
+{
+    "benchmark_name": "Simple Math in Python",
+    "purpose": "Evaluate the ability of a language model to perform simple mathematical operations in Python.",
+    "models": [
+        {
+            "model": "llama3.2:latest",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "print(5 + 5)",
+                        "tokens_per_second": 101.26582278481013,
+                        "provider": "ollama",
+                        "total_duration_ms": 897.583333,
+                        "load_duration_ms": 564.499542,
+                        "errored": null
+                    },
+                    "execution_result": "10.0",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "llama3.2:latest",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "result = (5 + 5) / 2 * 3\nprint(result)",
+                        "tokens_per_second": 92.23300970873787,
+                        "provider": "ollama",
+                        "total_duration_ms": 331.929334,
+                        "load_duration_ms": 15.778959,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "llama3.2:latest",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3*4+7)",
+                        "tokens_per_second": 97.82608695652173,
+                        "provider": "ollama",
+                        "total_duration_ms": 218.130584,
+                        "load_duration_ms": 15.289542,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "llama3.2:latest",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(20 - 15 * 3)",
+                        "tokens_per_second": 99.09909909909909,
+                        "provider": "ollama",
+                        "total_duration_ms": 237.700875,
+                        "load_duration_ms": 15.482458,
+                        "errored": null
+                    },
+                    "execution_result": "-25.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "llama3.2:latest",
+                    "correct": false,
+                    "index": 4
+                }
+            ],
+            "correct_count": 3,
+            "incorrect_count": 1,
+            "accuracy": 0.75,
+            "average_tokens_per_second": 97.6060046372922,
+            "average_total_duration_ms": 421.3360315,
+            "average_load_duration_ms": 152.76262525
+        },
+        {
+            "model": "ollama~falcon3:10b",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "print(5 + 5)",
+                        "tokens_per_second": 48.38709677419355,
+                        "provider": "ollama",
+                        "total_duration_ms": 1382.92025,
+                        "load_duration_ms": 550.7915,
+                        "errored": null
+                    },
+                    "execution_result": "10.0",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "(5 + 5) / 2 * 3",
+                        "tokens_per_second": 45.58404558404559,
+                        "provider": "ollama",
+                        "total_duration_ms": 689.063916,
+                        "load_duration_ms": 14.742833,
+                        "errored": null
+                    },
+                    "execution_result": "",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": false,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3 * 4 + 7)",
+                        "tokens_per_second": 46.42857142857142,
+                        "provider": "ollama",
+                        "total_duration_ms": 615.692708,
+                        "load_duration_ms": 11.86025,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3 * (20 - 15))",
+                        "tokens_per_second": 44.6927374301676,
+                        "provider": "ollama",
+                        "total_duration_ms": 780.390291,
+                        "load_duration_ms": 12.202708,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "ollama~falcon3:10b",
+                    "correct": true,
+                    "index": 4
+                }
+            ],
+            "correct_count": 3,
+            "incorrect_count": 1,
+            "accuracy": 0.75,
+            "average_tokens_per_second": 46.27311280424454,
+            "average_total_duration_ms": 867.01679125,
+            "average_load_duration_ms": 147.39932275
+        },
+        {
+            "model": "anthropic~claude-3-5-haiku-latest",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "print(5 + 5)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 455.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "10.0",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "result = ((5 + 5) / 2) * 3\nprint(result)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 563.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "print(3 * 4 + 7)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 566.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "print((20 - 15) * 3)",
+                        "tokens_per_second": 0.0,
+                        "provider": "anthropic",
+                        "total_duration_ms": 665.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "anthropic~claude-3-5-haiku-latest",
+                    "correct": true,
+                    "index": 4
+                }
+            ],
+            "correct_count": 4,
+            "incorrect_count": 0,
+            "accuracy": 1.0,
+            "average_tokens_per_second": 0.0,
+            "average_total_duration_ms": 562.25,
+            "average_load_duration_ms": 0.0
+        },
+        {
+            "model": "deepseek~deepseek-chat",
+            "results": [
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(5 + 5)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1688.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "10.0",
+                    "expected_result": "10.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 1
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(((5 + 5) / 2) * 3)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1068.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate add 5 and 5 then split in half then triple in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>add 5 and 5 then split in half then triple</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 2
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint(3 * 4 + 7)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1892.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "19.0",
+                    "expected_result": "19.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate multiply 3 by 4 and add 7 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>multiply 3 by 4 and add 7</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 3
+                },
+                {
+                    "prompt_response": {
+                        "response": "```python\nprint((20 - 15) * 3)\n```",
+                        "tokens_per_second": 0.0,
+                        "provider": "deepseek",
+                        "total_duration_ms": 1379.0,
+                        "load_duration_ms": 0.0,
+                        "errored": null
+                    },
+                    "execution_result": "15.0",
+                    "expected_result": "15.0",
+                    "input_prompt": "<purpose>\n    Exclusively output python code that performs the requested math operation and then prints the result.\n    Absolutely no additional text or explanation should be output.\n    Simply evaluate subtract 15 from 20 and multiply by 3 in Python and print the resulting value.\n</purpose>\n\n<instructions>\n    <instruction>Use Python to compute the result of the mathematical statement.</instruction>\n    <instruction>Print the numeric result only.</instruction>\n    <instruction>Do not output any text besides the final printed value.</instruction>\n    <instruction>Ensure the output can be executed immediately for the final numeric value.</instruction>\n</instructions>\n\n<statement>subtract 15 from 20 and multiply by 3</statement>\n",
+                    "model": "deepseek~deepseek-chat",
+                    "correct": true,
+                    "index": 4
+                }
+            ],
+            "correct_count": 4,
+            "incorrect_count": 0,
+            "accuracy": 1.0,
+            "average_tokens_per_second": 0.0,
+            "average_total_duration_ms": 1506.75,
+            "average_load_duration_ms": 0.0
+        }
+    ],
+    "overall_correct_count": 14,
+    "overall_incorrect_count": 2,
+    "overall_accuracy": 0.875,
+    "average_tokens_per_second": 35.96977936038419,
+    "average_total_duration_ms": 839.3382056875,
+    "average_load_duration_ms": 75.04048700000001
+}
