@@ -1,27 +1,23 @@
 web_search_assistant_task:
   description: >
-    Given the user input: {user_input}, perform a web search and reply with a detailed answer.
+    Given the user input: {user_input}, this task performs a comprehensive web search. It retrieves relevant information from various sources, including but not limited to news articles, academic papers, and official websites. The search process involves analyzing keywords, identifying credible sources, and ensuring the information is up-to-date. The goal is to gather a diverse range of perspectives and data to provide a well-rounded response.
   expected_output: >
-    A comprehensive answer based on the web search results for the query: {user_input}.
-  agent: web_search_assistant
+    A detailed and structured answer based on the web search results for the query: {user_input}. The response will include a summary of key findings, relevant data points, and when applicable, citations or references to the sources used. The answer will be organized into clear sections for easy readability, ensuring that all aspects of the user's query are addressed comprehensively.
 
 email_urls_to_graph_task:
   description: >
-    Extract URLs from the latest email and convert them into a structured knowledge graph.
+    This task extracts URLs from the latest email in the user's inbox. It identifies all hyperlinks, including those embedded within text or images, and processes them to form a structured knowledge graph. The extraction process involves parsing the email content, decoding any encoded URLs, and resolving any relative links to their absolute form. The URLs are then categorized based on their context within the email and cross-referenced to identify relationships and patterns.
   expected_output: >
-    A confirmation message indicating that the URLs have been successfully converted to a knowledge graph.
-  agent: email_urls_to_graph_assistant
+    A confirmation message indicating that the URLs have been successfully extracted and converted into a structured knowledge graph. The graph will represent the URLs as nodes, with edges indicating their relationships based on the email content. The output will include a visual representation of the graph (if applicable) and a summary of the key entities, their connections, and any emerging patterns or insights derived from the URL structure.
 
 question_answering_task:
   description: >
-    Using the provided context and the user question: {user_input}, generate a clear and concise answer.
+    Using the provided context and the user question: {user_input}, this task generates a clear and concise answer. The context is thoroughly analyzed to identify relevant information, which is then cross-referenced with the user's question to ensure accuracy and relevance. The task employs advanced natural language processing techniques to understand the nuances of the question and the context, ensuring that the answer addresses all aspects of the query effectively.
   expected_output: >
-    An answer addressing the question: {user_input}.
-  agent: question_answering_assistant
+    An answer addressing the question: {user_input}, based on the provided context. The answer will be presented in a clear and concise manner, with each part of the question addressed specifically. The response will include relevant details from the context, and when applicable, will highlight key points or potential areas of confusion. The answer will be structured logically, making it easy for the user to understand and apply the information.
 
 google_calendar_task:
   description: >
-    Retrieve events from the user's Google Calendar for the specified date: {events_date}.
+    This task retrieves events from the user's Google Calendar for the specified date: {events_date}. It accesses the calendar data, filters events based on the given date, and collects detailed information about each event. The process includes fetching event titles, start and end times, descriptions, locations, and attendee lists. The task ensures that all events are accurately retrieved and formatted for clear presentation.
   expected_output: >
-    A confirmation message listing the events retrieved for the date: {events_date}.
-  agent: google_calendar_assistant
+    A confirmation message listing the events retrieved for the date: {events_date}. The response will include a detailed summary of each event, presented in a user-friendly format. Each event will be described with its title, time, location, and other relevant details. The output will be organized chronologically, allowing the user to easily review their schedule for the specified date.
