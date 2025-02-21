@@ -1,0 +1,27 @@
+web_search_assistant_task:
+  description: >
+    Given the user input: {user_input}, perform a web search and reply with a detailed answer.
+  expected_output: >
+    A comprehensive answer based on the web search results for the query: {user_input}.
+  agent: web_search_assistant
+
+email_urls_to_graph_task:
+  description: >
+    Extract URLs from the latest email and convert them into a structured knowledge graph.
+  expected_output: >
+    A confirmation message indicating that the URLs have been successfully converted to a knowledge graph.
+  agent: email_urls_to_graph_assistant
+
+question_answering_task:
+  description: >
+    Using the provided context and the user question: {user_input}, generate a clear and concise answer.
+  expected_output: >
+    An answer addressing the question: {user_input}.
+  agent: question_answering_assistant
+
+google_calendar_task:
+  description: >
+    Retrieve events from the user's Google Calendar for the specified date: {events_date}.
+  expected_output: >
+    A confirmation message listing the events retrieved for the date: {events_date}.
+  agent: google_calendar_assistant
