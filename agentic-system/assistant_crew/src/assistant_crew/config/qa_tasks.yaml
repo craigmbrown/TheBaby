@@ -1,0 +1,6 @@
+question_answering_assistant_task:
+  description: >
+    Using the provided context and the user question: {user_input}, generate a clear and concise answer.
+  expected_output: >
+    An answer addressing the question: {user_input}.
+  agent: question_answering_assistant 

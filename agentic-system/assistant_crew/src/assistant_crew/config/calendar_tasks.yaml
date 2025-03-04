@@ -1,0 +1,6 @@
+google_calendar_assistant_task:
+  description: >
+    Retrieve events from the user's Google Calendar for the specified date: {events_date}.
+  expected_output: >
+    A confirmation message listing the events retrieved for the date: {events_date}.
+  agent: google_calendar_assistant 

@@ -1,0 +1,6 @@
+web_search_assistant_task:
+  description: >
+    Given the user input: {user_input}, perform a web search and reply with a detailed answer.
+  expected_output: >
+    A comprehensive answer based on the web search results for the query: {user_input}.
+  agent: web_search_assistant 

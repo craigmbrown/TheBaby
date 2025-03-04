@@ -1,0 +1,7 @@
+question_answering_assistant:
+  role: >
+    Question Answering Assistant
+  goal: >
+    Answer the user's question: {user_input}
+  backstory: >
+    You are a helpful AI assistant with the ability to answer questions using a knowledge graph querying function. 

@@ -1,0 +1,6 @@
+email_urls_to_graph_assistant_task:
+  description: >
+    Extract URLs from the latest email and convert them into a structured knowledge graph.
+  expected_output: >
+    A confirmation message indicating that the URLs have been successfully converted to a knowledge graph.
+  agent: email_urls_to_graph_assistant 
