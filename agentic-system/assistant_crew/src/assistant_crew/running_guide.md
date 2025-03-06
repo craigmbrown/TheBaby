@@ -17,16 +17,17 @@ First, you need to obtain the necessary authentication tokens for Google service
 
 ```bash
 # Navigate to the project root directory
-cd /path/to/assistant_crew
+cd /graphRAG/agentic-system/assistant_crew/src/assistant_crew
 
 # Run the token generator script
-python -m assistant_crew.tools.get_token
+python -m get_token.py
 ```
-
-When you run this script:
-1. A browser window will open asking you to log in to your Google account
-2. Grant the requested permissions for Gmail (read) and Calendar (read/write)
-3. The script will save your authentication token to `token.pickle`
+Steps:
+1. Copy the displayed URL and open it in a browser on your local machine (not the VM).
+2. Complete the Google authentication process.
+3. After authentication, Google will display an authorization code directly on the page.
+4. Copy this code and paste it back into the terminal where the script is running.
+5. The script will save the token and complete the process.
 
 > **Important**: Make sure to grant all requested permissions. The token needs access to:
 > - Gmail (read-only)
@@ -42,6 +43,12 @@ Once you have the authentication token, you can run the crews.
 ```bash
 # Navigate to the project root directory
 cd /graphRAG/agentic-system/assistant_crew
+
+# Mark bpenv as the desired virtual environment
+```bash
+
+export UV_PROJECT_ENVIRONMENT=/home/babyproject418/bpenv
+```
 
 # Run all crews
 crewai run
@@ -64,7 +71,7 @@ To have the crews run automatically every 5 minutes, use the `run_every_five_min
 
 ```bash
 # Navigate to the project root directory
-cd /path/to/assistant_crew
+cd /graphRAG/agentic-system/assistant_crew/src/
 
 # Run the automated script
 python -m assistant_crew.run_every_five_minutes

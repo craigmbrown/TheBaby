@@ -35,13 +35,20 @@ def generate_gmail_token():
             # Create the flow using the client secrets file
             flow = InstalledAppFlow.from_client_secrets_file(CREDENTIALS_PATH, SCOPES)
             
-            # Use the console flow instead of the browser flow
-            auth_url, _ = flow.authorization_url(prompt='consent')
+            # Set the redirect URI to the out-of-band (OOB) URI for command-line applications
+            flow.redirect_uri = 'urn:ietf:wg:oauth:2.0:oob'
+            
+            # Generate the authorization URL
+            auth_url, _ = flow.authorization_url(
+                access_type='offline',
+                include_granted_scopes='true',
+                prompt='consent'
+            )
             
             print(f"\n\n{'='*80}")
-            print("Please go to this URL to authorize the application:")
+            print("Please go to this URL on any device with a browser:")
             print(f"\n{auth_url}\n")
-            print("After authorization, you will be redirected to a page with an authorization code.")
+            print("After authorization, you will see a code on the page.")
             print("Copy that code and paste it below.")
             print(f"{'='*80}\n")
             
